@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cqywbwmgrgohq"]
+
+[ext_resource type="Script" uid="uid://dtankrioodfig" path="res://main.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfarhqthsb032" path="res://background.gd" id="2_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cas7y48j45bd0" path="res://player.tscn" id="3_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cc1nas4dk4vu4" path="res://hud.tscn" id="4_272bh"]
+[ext_resource type="AudioStream" uid="uid://dp71xqd6yp4ot" path="res://audio/music.wav" id="5_5vw27"]
+
+[sub_resource type="Environment" id="Environment_kek77"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.9
+glow_strength = 1.1
+glow_bloom = 0.08
+
+[node name="Main" type="Node2D" unique_id=1860083170]
+script = ExtResource("1")
+
+[node name="Background" type="Node2D" parent="." unique_id=1842559841]
+script = ExtResource("2_lquwl")
+
+[node name="Pearls" type="Node2D" parent="." unique_id=1049240653]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=522228955]
+
+[node name="Player" parent="." unique_id=1379939766 instance=ExtResource("3_7mycd")]
+
+[node name="FX" type="Node2D" parent="." unique_id=1417131330]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1259005749]
+position = Vector2(240, 360)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=640307331]
+environment = SubResource("Environment_kek77")
+
+[node name="HUD" parent="." unique_id=1657549875 instance=ExtResource("4_272bh")]
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1721083230]
+stream = ExtResource("5_5vw27")
+volume_db = -8.0

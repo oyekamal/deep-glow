@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dtinf3etmx1em"]
+
+[ext_resource type="Script" uid="uid://xawgxbnn3qqq" path="res://enemy.gd" id="1_7k104"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+
+[sub_resource type="Curve" id="Curve_qi2p4"]
+_data = [Vector2(0, 0.05), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_iifgy"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.35)
+
+[node name="Enemy" type="Area2D" unique_id=1084361924]
+script = ExtResource("1_7k104")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=416442650]
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="Trail" type="Line2D" parent="." unique_id=832663455]
+z_index = -1
+width = 14.0
+width_curve = SubResource("Curve_qi2p4")
+gradient = SubResource("Gradient_iifgy")
+joint_mode = 2
+end_cap_mode = 2

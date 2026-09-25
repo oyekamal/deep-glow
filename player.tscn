@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cas7y48j45bd0"]
+
+[ext_resource type="Script" uid="uid://2s65hjn5cl0x" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+
+[sub_resource type="Curve" id="Curve_i3pqv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hqtel"]
+colors = PackedColorArray(0.4, 1, 0.85, 0, 0.6, 1.4, 1.2, 0.55)
+
+[node name="Player" type="Area2D" unique_id=1379939766]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=651608484]
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="Trail" type="Line2D" parent="." unique_id=685085235]
+z_index = -1
+width = 12.0
+width_curve = SubResource("Curve_i3pqv")
+gradient = SubResource("Gradient_hqtel")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Bubbles" type="CPUParticles2D" parent="." unique_id=417788264]
+z_index = -1
+emitting = false
+amount = 24
+lifetime = 0.6
+spread = 25.0
+gravity = Vector2(0, -30)
+initial_velocity_min = 40.0
+initial_velocity_max = 90.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color = Color(0.6156863, 1, 0.8784314, 0.6666667)
